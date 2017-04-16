@@ -1,0 +1,45 @@
+{
+  "status":1,
+  "message": "XXX",
+  "result":{
+    "id":"123",
+    "list":[
+      {
+        "name": "商品1",
+        "gifts": "XXX",
+        "price": 19,
+        "count": 2,
+        "amount": 38,
+        "imgPic": "static/img/11.jpg",
+        "parts":[
+          {
+            "partId":"100001",
+            "partName":"打火机"
+          },
+          {
+            "partId":"100002",
+            "partName":"打火机1"
+          }
+        ]
+      },
+      {
+        "name": "商品2",
+        "gifts": "fuck",
+        "price": 20,
+        "count": 1,
+        "amount": 20,
+        "imgPic": "static/img/12.jpg",
+        "parts":[
+          {
+            "partId":"100001",
+            "partName":"打火机"
+          },
+          {
+            "partId":"100002",
+            "partName":"打火机1"
+          }
+        ]
+      }
+    ],
+  "totalMoney":59}
+}

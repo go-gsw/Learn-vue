@@ -1,0 +1,11 @@
+{
+	// 该死的逗号。
+	"message": "XXXxXXXX",
+	"result": {
+		"total": "XXX",
+		"list":[
+			{"hahaha":"xx"}
+		]
+	}
+ 
+}
