@@ -17,7 +17,7 @@
 		</div>
 		<div class="form-group">
 			<label>Age:</label>
-			<input type="text" placeholder="0" v-model="newPerson.age">
+			<input type="text" placeholder="年龄" v-model="newPerson.age">
 		</div>
 		<div class="form-group">
             <label>Sex:</label>
@@ -41,7 +41,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="person in people">
+                <tr v-for="(person,index) in people">
                     <td>{{ person.name }}</td>
                     <td>{{ person.age }}</td>
                     <td>{{ person.sex }}</td>
@@ -84,7 +84,7 @@
                 createPerson: function(){
                     this.people.push(this.newPerson);
                     // 添加完newPerson对象后，重置newPerson对象
-                    this.newPerson = {name: '', age: 0, sex: 'Male'}
+                    this.newPerson = {name: '', age: '', sex: 'Male'}
                 },
                 deletePerson: function(index){
                     // 删一个数组元素
