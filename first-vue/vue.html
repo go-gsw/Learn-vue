@@ -42,7 +42,7 @@
             </thead>
             <tbody>
                 <tr v-for="(person,index) in people">
-                    <td>{{ person.name }}</td>
+                    <td>{{ person.name+' ='+index }}</td>
                     <td>{{ person.age }}</td>
                     <td>{{ person.sex }}</td>
                     <td :class="'text-center'"><button @click="deletePerson($index)">Delete</button></td>
