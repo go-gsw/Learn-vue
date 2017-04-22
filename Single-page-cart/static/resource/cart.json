@@ -1,5 +1,6 @@
 {
   "status":1,
+  "title":"gsw",
   "message": "XXX",
   "result":{
     "id":"123",
@@ -9,8 +10,24 @@
         "gifts": "XXX",
         "price": 19,
         "count": 2,
-        "amount": 38,
         "imgPic": "static/img/11.jpg",
+        "parts":[
+          {
+            "partId":"100001",
+            "partName":"打火机"
+          },
+          {
+            "partId":"100002",
+            "partName":"打火机1"
+          }
+        ]
+      },
+      {
+        "name": "商品1",
+        "gifts": "XXX",
+        "price": 9.5,
+        "count": 4,
+        "imgPic": "static/img/13.jpg",
         "parts":[
           {
             "partId":"100001",
@@ -27,7 +44,6 @@
         "gifts": "fuck",
         "price": 20,
         "count": 1,
-        "amount": 20,
         "imgPic": "static/img/12.jpg",
         "parts":[
           {
@@ -41,5 +57,5 @@
         ]
       }
     ],
-  "totalMoney":59}
+  "totalMoney":0}
 }

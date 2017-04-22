@@ -59,8 +59,8 @@ export default {
 }
  #app .list-group a:hover{
   color: #ccc;
-} 
+}
  #app .list-group a:active{
   color: yellow;
-} 
+}
 </style>
