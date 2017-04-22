@@ -135,7 +135,7 @@ export default {
       cartList:[],
       totalMoney:0,
       finalTotal:0,
-      checkAll:"checked",
+      // checkAll:"checked",
       isDelete: false,
       curProduct: ''
       // title: 'hello,vue'
@@ -233,7 +233,7 @@ h1, h2 ,h3{
   font-weight: normal;
 }
 
-ul {
+/*ul {
   list-style-type: none;
   padding: 0;
 }
@@ -241,7 +241,7 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
+}*/
 
 a {
   color: #42b983;
