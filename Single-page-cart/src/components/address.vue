@@ -132,6 +132,7 @@
             </div>
           </div>
         </div>
+        <div class="md-overlay" id="showOverLay" v-show="isDelete" @click="isDelete = false"></div>
         <div class="md-modal modal-msg md-modal-transition" id="showModalw" :class="{'md-show':isadd}">
           <div class="md-modal-inner">
             <div class="md-top">
@@ -178,7 +179,6 @@
           </div>
         </div>
         <div class="md-overlay" id="showOverLay" v-show="isadd" @click="isadd=false"></div>
-        <!--<div class="md-overlay" id="showOverLays"></div>-->
       </div>
     </div>
   </div>

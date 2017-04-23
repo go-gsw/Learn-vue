@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <div class="router-list">
+    <div id="router-list">
       <router-link to="/">Hello</router-link>
       <router-link to="/address">address</router-link>
     </div>
@@ -16,7 +16,8 @@ export default {
   // components:{Hello},
 }
 window.onload=function(){
-  var list=document.getElementsByTagName('a');
+  var routerlist=document.getElementById('router-list')
+  var list=routerlist.getElementsByTagName('a');
   for(var i=0;i<list.length;i++){
     list[i].onclick=function changelist(){
       for(var j=0;j<list.length;j++){
@@ -45,14 +46,14 @@ window.onload=function(){
   width: 40px;
   height: 40px;
 }
-#app .router-list{
+#app #router-list{
   border-radius: 2px;
   width: 200px;
   height: 30px;
   margin: 0 auto;
   background-color: gray;
 }
-#app .router-list a{
+#app #router-list a{
   margin-right: 10px;
   letter-spacing: 1px;
   line-height: 30px;
@@ -60,7 +61,7 @@ window.onload=function(){
   color: #fff;
   font-weight: bold;
 }
-#app .router-list a:hover{
+#app #router-list a:hover{
   color: #333;
 }
 /*#app .router-list a:after{
