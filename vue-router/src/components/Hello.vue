@@ -10,7 +10,7 @@
           <router-link to="/Hello/:id">地址列表</router-link>
         </li>
       </ul> -->
-      <div class="router-link">
+      <div id="router-link">
       <!-- /表示默认加载的主路由 -->
       <router-link to="/">news</router-link>
       <router-link to="/message">message</router-link>
@@ -23,17 +23,34 @@
 <script>
 export default {
   name: 'hello',
+//data(){}是ES6写法等价于data:function (){return...}
   data () {
     return {
       msg: 'GSW'
     }
   }
 }
+function HelloloadChange(){
+// window.onload=function(){
+  var routerlist=document.getElementById('router-link')
+  var list=routerlist.getElementsByTagName('a');
+  for(var i=0;i<list.length;i++){
+    list[i].onclick= function changelist(){
+      for(var j=0;j<list.length;j++){
+        if(list[j]==this){
+          this.style.color="#000";
+        }else{
+          list[j].style.color="#fff";
+        }
+      }
+    };
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello .router-link{
+.hello #router-link{
     width: 1280px;
     height: 50px;
     vertical-align: middle;
@@ -44,7 +61,7 @@ export default {
     border-radius: 2px;
     box-shadow: 5px 2px 5px #eee;
 }
-.hello .router-link a{
+.hello #router-link a{
     display:inline-block;
     width:150px;
     height:50px;
@@ -54,7 +71,7 @@ export default {
     color:#fff;
     text-decoration: none;
 }
-.hello .router-link a:hover{
+.hello #router-link a:hover{
     color: gray;
 }
 
