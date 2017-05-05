@@ -4,6 +4,7 @@
   <!-- update不用传值可以通过v-model的msg获得this.msg -->
   <input type="text" v-model="msg" @keyup.enter="update">
     <ul>
+      <!-- v-text和v-html区别是v-text全部显示文本v-html会考虑html标签 -->
       <li v-for="item in items" v-text="item.label" v-bind:class="{finished:item.isfinished}"
           @click="toggleFinished(item)">
           <a @click="deleteitem">删除</a>
