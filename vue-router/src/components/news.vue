@@ -18,6 +18,7 @@
 import Storage from '../Storage'
 export default {
   name: 'news',
+  props:['msg'],
   data () {
     return {
       /*items:[
@@ -31,7 +32,7 @@ export default {
         }
       ],*/
       items:Storage.fetch(),
-      msg: ''
+      // msg: ''
     }
   },
   watch:{

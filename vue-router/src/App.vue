@@ -6,8 +6,8 @@
         <!-- <a v-link="{path:'/Hello'}">第一</a>
         <a v-link="{path:'/Address'}">第二</a> -->
         <!-- v-link指令已经被一个新的<router-link> 组件指令替代 -->
-        <router-link to="/">VUE</router-link>
-        <router-link to="/Address">地址列表</router-link>
+        <router-link to="/Hello" active-class="A-link-active" >VUE</router-link>
+        <router-link to="/Address" active-class="A-link-active" >地址列表</router-link>
       </div>
     <router-view></router-view>
   </div>
@@ -21,63 +21,15 @@ console.log(Storage)
 
 export default {
   name: 'app',
-/*  data(){
+/* data(){
     return {
       istrue:false
     }
   }*/
-/*  methods:{
-    AddloadEvent(ApploadChange)
+/* methods:{
   }*/
 }
-addloadEvent(ApploadChange)
-addloadEvent(HelloloadChange)
-function addloadEvent(func){
-  var oldonload=window.onload;
-  if(typeof window.onload !="function"){
-    window.onload=func;
-  }else{
-    window.onload=function(){
-      oldonload();
-      func();
-    }
-  }
-  console.log(oldonload);
-}
 
-
-// window.onload=function(){
-function ApploadChange(){
-  var routerlist=document.getElementById('list-group')
-  var list=routerlist.getElementsByTagName('a');
-  for(var i=0;i<list.length;i++){
-    list[i].onclick= function changelist(){
-      for(var j=0;j<list.length;j++){
-        if(list[j]==this){
-          this.style.color="#ccc";
-        }else{
-          list[j].style.color="#fff";
-        }
-      }
-    };
-  }
-}
-function HelloloadChange(){
-// window.onload=function(){
-  var routerlist=document.getElementById('router-link')
-  var list=routerlist.getElementsByTagName('a');
-  for(var i=0;i<list.length;i++){
-    list[i].onclick= function changelist(){
-      for(var j=0;j<list.length;j++){
-        if(list[j]==this){
-          this.style.color="#000";
-        }else{
-          list[j].style.color="#fff";
-        }
-      }
-    };
-  }
-}
 </script>
 
 <style>
@@ -86,7 +38,7 @@ function HelloloadChange(){
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /*color: #2c3e50;*/
   margin-top: 60px;
 }
 #app #list-group{
@@ -99,7 +51,7 @@ function HelloloadChange(){
 #app #list-group a{
   display: inline-block;
   /*box-sizing: border-box;*/
-  color: #fff;
+  /*color: #fff;*/
   font-weight: bold;
   width: 120px;
   height: 50px;
@@ -108,15 +60,22 @@ function HelloloadChange(){
   text-decoration: none;
 }
 /* #app .list-group a:link{
-  color: red;
-} 
-#app .list-group a:visited{
-  color: green;
-}*/
- #app #list-group a:hover{
+  color: black;
+} */
+/*#app #list-group a:visited{
   color: #ccc;
-}
+}*/
+/*#app #list-group a:hover{
+  color: #ccc;
+}*/
 /* #app .list-group a:active{
   color: yellow;
+}*/
+a.A-link-active {
+  color: red;
+}
+
+/*li.router-link-active a{
+  color: #900;
 }*/
 </style>

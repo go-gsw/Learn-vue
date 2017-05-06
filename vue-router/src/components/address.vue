@@ -3,8 +3,8 @@
 		<h1>{{message}}</h1>
 	<div id="router-link">
       <!-- /表示默认加载的主路由 -->
-      <router-link to="/Address/">message</router-link>
-      <router-link to="/Address/news">news</router-link>
+      <router-link to="/Address/message" active-class="D-link-active" exact>message</router-link>
+      <router-link to="/Address/news" active-class="D-link-active" exact>news</router-link>
       </div>
     <router-view></router-view>	
 	</div>
@@ -39,7 +39,10 @@ export default{
     line-height:50px;
     font-size:20px;
     text-align: center;
-    color:#fff;
+    /*color:#fff;*/
     text-decoration: none;
+}
+a.D-link-active{
+    color: yellow;
 }
 </style>

@@ -12,8 +12,9 @@
       </ul> -->
       <div id="router-link">
       <!-- /表示默认加载的主路由 -->
-      <router-link to="/">news</router-link>
-      <router-link to="/message">message</router-link>
+      <!-- exact表示地址完全匹配时才被激活 -->
+      <router-link to="/Hello/news" :class="isactive" active-class="H-link-active" exact>news</router-link>
+      <router-link to="/Hello/message" :class="isactive" active-class="H-link-active" exact>message</router-link>
       </div>
     <router-view></router-view>
   </div>
@@ -30,22 +31,7 @@ export default {
     }
   }
 }
-function HelloloadChange(){
-// window.onload=function(){
-  var routerlist=document.getElementById('router-link')
-  var list=routerlist.getElementsByTagName('a');
-  for(var i=0;i<list.length;i++){
-    list[i].onclick= function changelist(){
-      for(var j=0;j<list.length;j++){
-        if(list[j]==this){
-          this.style.color="#000";
-        }else{
-          list[j].style.color="#fff";
-        }
-      }
-    };
-  }
-}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -68,13 +54,18 @@ function HelloloadChange(){
     line-height:50px;
     font-size:20px;
     text-align: center;
-    color:#fff;
+    /*color:#fff;*/
     text-decoration: none;
 }
-.hello #router-link a:hover{
+/*.hello #router-link a:hover{
     color: gray;
-}
-
+}*/
+/*.hello #router-link a.isactive{
+  color: black;
+}*/
+/*.hello #router-link a:visited{
+  color: #fff;
+}*/
 h1, h2 {
   font-weight: normal;
 }
@@ -89,7 +80,10 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #42b983;
+/*a.router-link-active{
+  color: black;
+}*/
+a.H-link-active{
+  color: black;
 }
 </style>

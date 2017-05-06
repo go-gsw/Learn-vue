@@ -18,37 +18,41 @@ Vue.use(Router)
       </div>'}*/
 export default new Router({
   routes: [
-/*  	{
+    /*{
       path:'/user',
       component:user,
       children:[*/
+
+      //默认显示地址由path:'/'表示
       {
-        path: '/',
+        path: '/Hello',
         component: Hello,
         children:[
         	{
-        		path:'/',component: news
+        		path:'/Hello/news',component: news
         	},
         	{
-        		path:'message',component: message
+        		path:'/Hello/message',component: message
         	}
-        ]
+        ],
       },
       {
   	  path: '/Address',
   	  component: Address,
       children:[
           {
-            path:'news',component: news
+            path:'/Address/news',component: news
           },
           {
-            path:'/',component: message
+            path:'/Address/message',component: message
           }
-        ]
-  /*    }
-    ]*/
-  }
-  ]
+        ],
+
+      }
+      ],
+
+    // linkActiveClass是全局配置
+    // linkActiveClass:'A-link-active'
 })
 
 // router.map方法已经被替换
