@@ -37,6 +37,8 @@ export default {
   },
   watch:{
     items:{
+      //深度 watcher
+      //handler: function (val, oldVal) { /* ... */ },
       handler(items){
         Storage.save(items)
       },

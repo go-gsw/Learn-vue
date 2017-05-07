@@ -9,13 +9,16 @@ Vue.use(Router)
 
 // const news={ template:'<div><ul><li>news1</li><li>news2</li><li>news3</li></ul></div>' }
 // const message={ template:'<div>jjjjjjjjjjj</div>' }
-/*const user={template:'\
+      // <h2>User:{{ $route.params.user.name }}</h2>
+const Users={template:'\
       <div class="user">\
-      <h2>User:{{ $route.params.id }}</h2>\
-      <router-link to="/user/Hello">登陆</router-link>\
-      <router-link to="/user/Address">注册</router-link>\
+      <h2>UsersGGGGG</h2>\
+      <div>{{$route.params.name}}</div>\
       <router-view></router-view>\
-      </div>'}*/
+      </div>'}
+
+const user={template:'<div>{{$route.params.username}}</div>'}
+
 export default new Router({
   routes: [
     /*{
@@ -24,6 +27,13 @@ export default new Router({
       children:[*/
 
       //默认显示地址由path:'/'表示
+      {
+        path:'/users/:username',
+        components:{default:Users},
+        children:[
+          {path:'',name:'',component:user}
+        ]
+      },
       {
         path: '/Hello',
         component: Hello,

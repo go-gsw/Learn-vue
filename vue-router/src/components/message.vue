@@ -4,16 +4,23 @@
     <ul>
       <li>{{message}}</li>
       <li>{{message}}</li>
-      <li>{{message}}</li>
+      <li v-on:click="speakToFather">{{msgfromfatherComponent}}</li>
     </ul>
   </div>
 </template>
 <script>
 export default {
   name: 'message',
+  //子组件必须声明props想获取的父组件信息
+  props:['msgfromfatherComponent'],
   data () {
     return {
       message: 'Welcome !'
+    }
+  },
+  methods:{
+    speakToFather(){
+      this.$emit('children-tell-father',this.message)
     }
   }
 }
