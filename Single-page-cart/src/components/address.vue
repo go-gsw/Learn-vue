@@ -57,7 +57,7 @@
                   <dd class="tel">{{item.tel}}</dd>
                 </dl>
                 <div class="addr-opration addr-edit">
-                  <a href="javascript:;" class="addr-edit-btn">
+                  <a href="javascript:;" class="addr-edit-btn" @click="editAddress(index)">
                     <svg class="icon icon-edit"><use xlink:href="#icon-edit"></use></svg>
                   </a>
                 </div>
@@ -74,7 +74,7 @@
 
               <li class="addr-new">
                 <div class="add-new-inner">
-                  <i class="icon-add" @click="addNewAddress()">
+                  <i class="icon-add" @click="addNewAddress(saveID)">
                     <svg class="icon icon-add"><use xlink:href="#icon-add"></use></svg>
                   </i>
                   <p >添加新地址</p>
@@ -172,13 +172,65 @@
                 </div>
               </div>
               <div class="btn-wrap col-2">
-                <button class="btn btn--s" id="btnModalConfirms" @click="saveNewAddress()">保存</button>
+                <button class="btn btn--s" id="btnModalConfirms" @click="saveNewAddress(saveID)">保存</button>
                 <button class="btn btn--s btn--red" id="btnModalCancels" @click="isadd=false">取消</button>
               </div>
             </div>
           </div>
         </div>
         <div class="md-overlay" id="showOverLay" v-show="isadd" @click="isadd=false"></div>
+
+
+
+
+
+        <div class="md-modal modal-msg md-modal-transition" id="showModalw" :class="{'md-show':isedit}">
+          <div class="md-modal-inner">
+            <div class="md-top">
+              <button class="md-close" @click="isedit=false">+</button>
+            </div>
+            <div class="md-content">
+              <div class="confirm-tips">
+                <div class="md-form-item" >
+                  <label class="md-form-item__label" style="width: 80px;">
+                    姓名
+                  </label>
+                  <div class="md-form-item__content" style="margin-left: 80px;">
+                    <div  class="el-input">
+                      <input type="text" autocomplete="off" class="md-input__inner" v-model="editingAddress(editIndex).userName">
+                    </div>
+                  </div>
+                </div>
+                <div class="md-form-item">
+                  <label class="md-form-item__label" style="width: 80px;">
+                    地址
+                  </label>
+                  <div class="md-form-item__content" style="margin-left: 80px;">
+                    <div  class="el-input">
+                      <input type="text" autocomplete="off" class="md-input__inner" v-model="editingAddress(editIndex).streetName">
+                    </div>
+                  </div>
+                </div>
+                <div class="md-form-item">
+                  <label class="md-form-item__label" style="width: 80px;">
+                    电话号码
+                  </label>
+                  <div class="md-form-item__content" style="margin-left: 80px;">
+                    <div  class="el-input">
+                      <input type="text" autocomplete="off" class="md-input__inner" v-model="editingAddress(editIndex).tel">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrap col-2">
+                <button class="btn btn--s" id="btnModalConfirms" @click="editOldAddress(editIndex)">保存</button>
+                <button class="btn btn--s btn--red" id="btnModalCancels" @click="isedit=false">取消</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md-overlay" id="showOverLay" v-show="isedit" @click="isedit=false"></div>
+
       </div>
     </div>
   </div>
@@ -194,15 +246,19 @@ export default {
       limitNum: 3,
       addressList: [],
       curIndex: 0,
+      editIndex:0,
+      saveID:0,
       sendMethod: 1,
       curAddress: '',
       isDelete: false,
       isadd:false,
+      isedit:false,
       newAddress:{
+        addressId:'',
       	userName:'',
       	streetName:'',
       	tel:'',
-      	// isDefault:true
+      	isDefault:false
       }
     }
   },
@@ -240,20 +296,45 @@ export default {
       this.isDelete = true;
       this.curAddress = address;
     },
-    addNewAddress(){
+    addNewAddress(saveID){
     	this.isadd=true;
+      this.saveID+=1;
+      // console.log(saveID)
     },
-    saveNewAddress(){
+    editAddress(index){
+      this.isedit=true;
+      console.log(index);
+      this.editIndex=index
+    },
+    saveNewAddress(saveID){
+      this.newAddress.addressId=saveID;
     	this.addressList.push(this.newAddress);
+      // console.log(this.newAddress.addressId);
     	// 添加完newAddress对象后，重置newAddress对象
-    	this.newAddress={userName:'',
+    	this.newAddress={
+                addressId:'',
+                userName:'',
 				      	streetName:'',
 				      	tel:'',
-				      	// isDefault:true
+				      	isDefault:false
 				      };
-		this.isadd=false;
-		this.limitNum = this.addressList.length;
-	},
+  		this.isadd=false;
+      
+  		this.limitNum = this.addressList.length;
+  	},
+    editOldAddress(editIndex){
+      let editaddress =this.filterAddress[editIndex];
+      console.log(editaddress.userName);
+      console.log(editaddress);
+      // this.filterAddress[editIndex].item.forEach((item)=>{
+      //   return filterAddress[editIndex]
+      // });
+      // this.filterAddress[editIndex].fill(editaddress);
+      // this.addressList.splice(editIndex,0);
+      console.log(this.addressList);
+      this.editIndex=0;
+      this.isedit=false;
+    },
     deleteAddress(){
       let index = this.addressList.indexOf(this.curAddress);
       //splice操作原生数组
@@ -266,6 +347,10 @@ export default {
     	}else{
     		return this.limitNum=3;
     	}
+    },
+    editingAddress(editIndex){
+      return this.filterAddress[editIndex];
+      console.log(filterAddress[editIndex])
     }
   },
   //计算属性从新生成数组
