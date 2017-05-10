@@ -20,7 +20,7 @@
           <li><router-link :to="{params:{username:'GSW',name:'ddd'},query:{foo:'barvvvvv'}}">大大gsw</router-link></li>
         </ul>
       </div>
-    <router-view></router-view>
+    <router-view class="part1"></router-view>
     <!-- <router-view class="part2" name="Aname"></router-view> -->
     <div class="testprops">
       <h2>子组件传递过来的值:{{ChildWords}}</h2>
@@ -111,22 +111,25 @@ img{
   padding: 0;
   margin:0 auto;
 }
-#app #list-group .user{
+/*#app #list-group .user{
   width: 1200px;
   margin: auto;
   background-color: #eee;
-}
+}*/
 .user{
   width: 1200px;
   margin: auto;
   background-color: #eee;
   border-radius: 2px;
 }
-#app #list-group .part1{
+.part1{
+  background-color: #ccc;
+}
+/*#app #list-group .part1{
   width: 1200px;
   margin: auto;
   background-color: #eee;
-}
+}*/
 #app .testprops{
   width: 1200px;
   margin: auto;
