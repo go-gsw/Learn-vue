@@ -1,6 +1,8 @@
 <template>
 	<div class="address">
-		<h1>{{message}}</h1>
+		<div id="msg">
+          <h1>{{ message }}</h1>
+        </div>
 	<div id="router-link">
       <!-- /表示默认加载的主路由 -->
       <router-link to="/Address/message" active-class="D-link-active" exact>message</router-link>
@@ -21,14 +23,23 @@ export default{
 }
 </script>
 <style scoped>
+.address{
+    width: 1200px;
+    /*text-align: center;*/
+    margin: auto;
+}
+.address #msg{
+    width: inherit;
+    text-align: left;
+}
 .address #router-link{
-	width: 1280px;
+	width: inherit;
     height: 50px;
     vertical-align: middle;
     margin: 0 auto;
-    padding:0 30px;
+    padding:0 ;
     text-align: center;
-    background: #605F5F;
+    background: #aaa;
     border-radius: 2px;
     box-shadow: 5px 2px 5px #eee;
 }

@@ -1,6 +1,13 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div id="msg">
+      <h1>{{ msg }}</h1>
+    </div>
+    <!-- <p>{{count}}</p>
+    <div>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </div> -->
     <!-- <h2>{{$router.params.id}}</h2> -->
       <!-- <ul>
         <li>
@@ -13,8 +20,8 @@
       <div id="router-link">
       <!-- /表示默认加载的主路由 -->
       <!-- exact表示地址完全匹配时才被激活 -->
-      <router-link to="/Hello/news" :class="isactive" active-class="H-link-active" exact>news</router-link>
-      <router-link to="/Hello/message" :class="isactive" active-class="H-link-active" exact>message</router-link>
+      <router-link to="/Hello/news" active-class="H-link-active" exact>news</router-link>
+      <router-link to="/Hello/message" active-class="H-link-active" exact>message</router-link>
       </div>
     <router-view></router-view>
   </div>
@@ -29,23 +36,46 @@ export default {
     return {
       msg: 'GSW'
     }
-  }
+  },
+  // methods:{
+  //   increment(){
+  //     store.commit('increment')
+  //   },
+  //   decrement(){
+  //     store.commit('decrement')
+  //   }
+  // },
+  // computed:{
+  //   count(){
+  //     return store.state.count
+  //   }
+  // }
 }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello{
+    width: 1200px;
+    /*text-align: center;*/
+    margin: auto;
+}
+.hello #msg{
+    width: inherit;
+    text-align: left;
+}
 .hello #router-link{
-    width: 1280px;
+    width: inherit;
     height: 50px;
     vertical-align: middle;
     margin: 0 auto;
-    padding:0 30px;
+    padding:0 ;
     text-align: center;
-    background: #605F5F;
+    background: #aaa;
     border-radius: 2px;
-    box-shadow: 5px 2px 5px #eee;
+    z-index: 10;
+    box-shadow: 5px 3px 5px #eee;
 }
 .hello #router-link a{
     display:inline-block;
@@ -67,7 +97,7 @@ export default {
   color: #fff;
 }*/
 h1, h2 {
-  font-weight: normal;
+  font-weight: bold;
 }
 
 ul {

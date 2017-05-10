@@ -1,23 +1,42 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Vuex from 'vuex'
 import Hello from '@/components/Hello'
 import Address from '@/components/address'
 import news from '@/components/news'
 import message from '@/components/message'
 // import user from '@/components/'
 Vue.use(Router)
-
+Vue.use(Vuex)
 // const news={ template:'<div><ul><li>news1</li><li>news2</li><li>news3</li></ul></div>' }
 // const message={ template:'<div>jjjjjjjjjjj</div>' }
       // <h2>User:{{ $route.params.user.name }}</h2>
 const Users={template:'\
       <div class="user">\
-      <h2>UsersGGGGG</h2>\
+      <h2>UsersTemplate</h2>\
       <div>{{$route.params.name}}</div>\
       <router-view></router-view>\
       </div>'}
 
 const user={template:'<div>{{$route.params.username}}</div>'}
+
+// const Counter={template:'<div><p>{{count}}</p><div>\
+//       <button @click="increment">+</button>\
+//       <button @click="decrement">-</button>\
+//       </div></div>',computed:{count(){return this.$stroe.state.count}}}
+
+// const store =new Vuex.Store({
+//   state:{
+//     count:0
+//   },
+//   mutations:{
+//     // increment(state){
+//     //   state.count++
+//     // }
+//     increment:state=>state.count++,
+//     decrement:state=>state.count--
+//   }
+// })
 
 export default new Router({
   routes: [
@@ -28,10 +47,14 @@ export default new Router({
 
       //默认显示地址由path:'/'表示
       {
-        path:'/users/:username',
-        components:{default:Users},
+        //动态路由匹配
+        path:'/users/:username/uname/:name',
+        //命名视图
+        // components:{default:Users,Aname:Counter},
+        component:Users,
         children:[
-          {path:'',name:'',component:user}
+
+          {path:'',name:'',component:user},
         ]
       },
       {
@@ -47,9 +70,9 @@ export default new Router({
         ],
       },
       {
-  	  path: '/Address',
-  	  component: Address,
-      children:[
+    	  path: '/Address',
+    	  component: Address,
+        children:[
           {
             path:'/Address/news',component: news
           },
@@ -59,7 +82,7 @@ export default new Router({
         ],
 
       }
-      ],
+      ]
 
     // linkActiveClass是全局配置
     // linkActiveClass:'A-link-active'

@@ -2,8 +2,7 @@
   <div class="message">
   <h1>{{message}}</h1>
     <ul>
-      <li>{{message}}</li>
-      <li>{{message}}</li>
+      <button v-on:click="speakToFather">{{msgfromfatherComponent}}</button>
     </ul>
   </div>
 </template>
@@ -14,7 +13,7 @@ export default {
   props:['msgfromfatherComponent'],
   data () {
     return {
-      message: 'Welcome !'
+      message: '子向父组件通信的值'
     }
   },
   methods:{
@@ -26,19 +25,13 @@ export default {
 </script>
 <style>
   .message{
-    height: inherit;
-    background-color: #ccc;
-    margin: 0;
-    z-index: 1;
-  }
-  .message h1{
-    margin-top: 0;
+    background-color: #ccc !important;
   }
 	.message ul{
-    width: inherit;
+    width: 100px;
     margin: 0 auto;
 		text-align: center;
-		background-color: #EEE;
+		background-color: #ccc !important;
     list-style: none;
     padding:0;
 	}
