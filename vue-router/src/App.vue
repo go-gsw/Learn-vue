@@ -20,7 +20,7 @@
           <li><router-link :to="{params:{username:'GSW',name:'ddd'},query:{foo:'barvvvvv'}}">大大gsw</router-link></li>
         </ul>
       </div>
-    <router-view class="part1"></router-view>
+    <router-view></router-view>
     <!-- <router-view class="part2" name="Aname"></router-view> -->
     <div class="testprops">
       <h2>子组件传递过来的值:{{ChildWords}}</h2>
@@ -69,23 +69,24 @@ img{
 }
 #app .imglogo{
   width: 1200px;
+  height: 100px;
   margin:auto;
 }
-/*#app .imglogo img{
+#app .imglogo img{
   float: left;
 }
 #app .imglogo img:after{
   content: '';
   display: block;
   clear: both;
-}*/
-#app .part2{
-  background-color: red;
 }
+/*#app .part2{
+  background-color: red;
+}*/
 #app #list-group{
   width: 1200px;
   margin: 0 auto;
-  height: 110px;
+  height: 100px;
   border-radius: 5px;
   background-color: #ddd;
 }
@@ -102,13 +103,29 @@ img{
 }
 #app #list-group ul{
   padding: 0;
-
+  margin:0;
 }
 #app #list-group ul li{
   display: inline-block;
   list-style: none;
   padding: 0;
   margin:0 auto;
+}
+#app #list-group .user{
+  width: 1200px;
+  margin: auto;
+  background-color: #eee;
+}
+.user{
+  width: 1200px;
+  margin: auto;
+  background-color: #eee;
+  border-radius: 2px;
+}
+#app #list-group .part1{
+  width: 1200px;
+  margin: auto;
+  background-color: #eee;
 }
 #app .testprops{
   width: 1200px;
