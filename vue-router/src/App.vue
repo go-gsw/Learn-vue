@@ -119,12 +119,12 @@ img{
 .user{
   width: 1200px;
   margin: auto;
-  background-color: #eee;
+  background-color: #ccc;
   border-radius: 2px;
 }
-.part1{
+/*.part1{
   background-color: #ccc;
-}
+}*/
 /*#app #list-group .part1{
   width: 1200px;
   margin: auto;
