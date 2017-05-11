@@ -5,8 +5,8 @@
   <input type="text" v-model="msg" placeholder="输入生成列表" @keyup.enter="update">
     <ul>
       <!-- v-text和v-html区别是v-text全部显示文本v-html会考虑html标签 -->
-      <li v-for="item in items" v-text="item.label" v-bind:class="{finished:item.isfinished}"
-          @click="toggleFinished(item)">
+      <li class="FinishAndDel" v-for="item in items" v-text="item.label" v-bind:class="{finished:item.isfinished}"
+          @click="toggleFinished(item)" @dblclick="del(item)">
           <a @click="deleteitem">删除</a>
       </li>
       <!-- <li>{{msg}}</li>
@@ -61,7 +61,11 @@ export default {
     },
     toggleFinished(item){
       item.isfinished=!item.isfinished
-  }
+    },
+    del(item){
+      this.items.splice(item,1);
+      // console.log(this.items)
+    }
 }
 }
 </script>
