@@ -26,14 +26,19 @@ export default{
 .address{
     width: 1200px;
     /*text-align: center;*/
-    margin: auto;
+    margin: 10px auto;
+    background-color: #999;
+    height: 300px;
 }
 .address #msg{
     width: inherit;
     text-align: left;
+    line-height: 50px;
+    height: 50px;
 }
 .address #router-link{
 	width: inherit;
+    top: 50px;
     height: 50px;
     vertical-align: middle;
     margin: 0 auto;
@@ -41,7 +46,9 @@ export default{
     text-align: center;
     background: #aaa;
     border-radius: 2px;
-    box-shadow: 5px 2px 5px #eee;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /*box-shadow: 5px 0 5px #eee;*/
 }
 .address #router-link a{
     display:inline-block;

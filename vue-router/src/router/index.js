@@ -11,13 +11,15 @@ Vue.use(Vuex)
 // const news={ template:'<div><ul><li>news1</li><li>news2</li><li>news3</li></ul></div>' }
 // const message={ template:'<div>jjjjjjjjjjj</div>' }
       // <h2>User:{{ $route.params.user.name }}</h2>
-const Users={template:'\
+      //父组件
+const Users={
+      template:'\
       <div class="user">\
-      <h2>UsersTemplate</h2>\
+      <h1>UsersTemplate</h1>\
       <div>{{$route.params.name}}</div>\
-      <router-view></router-view>\
+      <transition name="fade"><router-view class="part2"></router-view></transition>\
       </div>'}
-
+      //子组件
 const user={template:'<div>{{$route.params.username}}</div>'}
 
 // const Counter={template:'<div><p>{{count}}</p><div>\

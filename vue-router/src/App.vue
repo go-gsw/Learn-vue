@@ -10,22 +10,24 @@
         <!-- 表示目标路由的链接。当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。 -->
 
         <!-- v-link指令已经被一个新的<router-link> 组件指令替代 -->
-        <router-link to="/Hello" active-class="A-link-active" >VUE</router-link>
+        <router-link to="/Hello" active-class="A-link-active" >Hello</router-link>
         <router-link to="/Address" active-class="A-link-active" >地址列表</router-link>
         <ul>
           <!-- 是一个字符串路径，或者一个描述地址的对象 -->
           <!-- 动态路由匹配 -->
           <li><router-link to="/users/gsw/uname/ccc">小小gsw</router-link></li>
-          <li><router-link :to="{path:'/users/GSWGGGGGG/uname/www',query:{foo:'barrrr'}}">大gsw</router-link></li>
-          <li><router-link :to="{params:{username:'GSW',name:'ddd'},query:{foo:'barvvvvv'}}">大大gsw</router-link></li>
+          <li><router-link :to="{path:'/users/GSWGGGGGG/uname/www',query:{gsw:'barrr'}}">大gsw</router-link></li>
+          <li><router-link :to="{path:'/users/GSW/uname/ddd',params:{username:'GSW',name:'ddd'},query:{gsw:'barvvv'}}">大大gsw</router-link></li>
         </ul>
       </div>
-    <router-view class="part1"></router-view>
+    <transition name="fade" appear><router-view class="part1"></router-view></transition>
     <!-- <router-view class="part2" name="Aname"></router-view> -->
     <div class="testprops">
+      <div class="testh2">
       <h2>子组件传递过来的值:{{ChildWords}}</h2>
-      <!-- 父组件向子组件传递 msgfromfatherComponent，子组件向父组件传递需要绑定事件(children-tell-father)-->
-      <testprops msgfromfatherComponent="父向子传递的值" v-on:children-tell-father='ListenMyChild' ></testprops>
+      </div>
+      <!-- 父组件向子组件传递 msgfromfatherComponent，子组件向父组件传递需要绑定监听事件(children-tell-father)-->
+      <testprops msgfromfatherComponent="父向子组件传递过来的值" v-on:children-tell-father='ListenMyChild' ></testprops>
     </div>
   </div>
 </template>
@@ -39,6 +41,7 @@ import testprops from './components/testprops'
 //export也是ES6写法等价于module.export{default}
 export default {
   name: 'app',
+  //加载组件进来
   components:{ testprops },
   data(){
       return {
@@ -55,6 +58,10 @@ export default {
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+}
 img{
   width: 80px;
   height: 80px;
@@ -65,7 +72,12 @@ img{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   /*color: #2c3e50;*/
+  width: 1300px;
+  margin:0 auto;
   margin-top: 60px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
 }
 #app .imglogo{
   width: 1200px;
@@ -122,6 +134,18 @@ img{
   background-color: #ccc;
   border-radius: 2px;
 }
+.hello{
+  width: 1200px;
+  margin: auto;
+  background-color: #ddd;
+  border-radius: 2px;
+}
+.address{
+  width: 1200px;
+  margin: auto;
+  background-color: #eee;
+  border-radius: 2px;
+}
 /*.part1{
   background-color: #ccc;
 }*/
@@ -135,6 +159,11 @@ img{
   margin: auto;
   background-color: #eee;
 }
+#app .testprops .testh2{
+  height: 50px;
+  line-height: 50px;
+}
+
 /* #app .list-group a:link{
   color: black;
 } */
@@ -154,4 +183,32 @@ a.A-link-active {
 /*li.router-link-active a{
   color: #900;
 }*/
+
+.user .part2 .fade-enter-active,.user .part2 .fade-leave-active {
+  transition: opacity 5s
+}
+.user .part2 .fade-enter,.user .part2 .fade-leave-active /* .fade-leave-active in <2.1.8 */ {
+  transform: translateX(10px);
+  color: red;
+  opacity: 0
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: 2s ease;
+}
+.fade-enter-to,.fade-leave{
+  /*opacity: 1;*/
+  /*visibility: visible;*/
+
+}
+.fade-enter{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(1200px);
+}
+.fade-leave-to{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-1200px);
+}
 </style>

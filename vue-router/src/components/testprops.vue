@@ -1,8 +1,12 @@
 <template>
   <div class="message">
-  <h1>{{message}}</h1>
+  <div class="mestest">
+    <h1>子要向父组件通信过去的值：</h1>
+  </div>
+  <input type="text" v-model="message" placeholder="输入值传向父组件" style="height:40px">
+  <h2>{{msgfromfatherComponent}}</h2>
     <ul>
-      <button v-on:click="speakToFather">{{msgfromfatherComponent}}</button>
+      <button v-on:click="speakToFather" style="height:30px">传递按钮</button>
     </ul>
   </div>
 </template>
@@ -13,7 +17,7 @@ export default {
   props:['msgfromfatherComponent'],
   data () {
     return {
-      message: '子向父组件通信的值'
+      message: ''
     }
   },
   methods:{
@@ -26,6 +30,10 @@ export default {
 <style>
   .message{
     background-color: #ccc !important;
+  }
+  .message .mestest{
+    height: 50px;
+    line-height: 50px;
   }
 	.message ul{
     width: 100px;

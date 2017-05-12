@@ -59,23 +59,32 @@ export default {
 .hello{
     width: 1200px;
     /*text-align: center;*/
-    margin: auto;
+    margin: 10px auto;
+    height: 300px;
+    background-color: #999;
+    box-sizing: border-box;
 }
 .hello #msg{
     width: inherit;
     text-align: left;
+    line-height: 50px;
+    height: 50px;
+    margin:0;
 }
 .hello #router-link{
     width: inherit;
+    top: 50px;
     height: 50px;
     vertical-align: middle;
-    margin: 0 auto;
+    margin: auto;
     padding:0 ;
     text-align: center;
     background: #aaa;
-    border-radius: 2px;
+    /*border-radius: 2px;*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     z-index: 10;
-    box-shadow: 5px 3px 5px #eee;
+    /*box-shadow: 5px 0 5px #eee;*/
 }
 .hello #router-link a{
     display:inline-block;
@@ -98,6 +107,7 @@ export default {
 }*/
 h1, h2 {
   font-weight: bold;
+  margin:0;
 }
 
 ul {

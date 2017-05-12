@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="mes">
   <h1>{{message}}</h1>
     <ul>
       <li>{{message}}</li>
@@ -25,20 +25,31 @@ export default {
 }
 </script>
 <style>
-  .message{
-    height: inherit;
+  .mes{
+    height: 200px;
+    width: 1200px;
     background-color: #ccc;
     margin: 0;
+    box-sizing: border-box;
     z-index: 1;
   }
-  .message h1{
-    margin-top: 0;
+  .mes h1{
+    /*margin-top: 0;*/
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
-	.message ul{
+	.mes ul{
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    height: 150px;
     width: inherit;
+    z-index: 3;
     margin: 0 auto;
 		text-align: center;
-		background-color: #EEE;
+		background-color: #ddd;
     list-style: none;
     padding:0;
 	}
