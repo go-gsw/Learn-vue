@@ -16,11 +16,11 @@ const Users={
       template:'\
       <div class="user">\
       <h1>UsersTemplate</h1>\
-      <div>{{$route.params.name}}</div>\
-      <transition name="fade"><router-view class="part2"></router-view></transition>\
+      <h2>{{$route.params.name}}</h2>\
+      <transition name="fade" mode="out-in"><router-view class="part2"></router-view></transition>\
       </div>'}
       //子组件
-const user={template:'<div>{{$route.params.username}}</div>'}
+const user={template:'<h2>{{$route.params.username}}</h2>'}
 
 // const Counter={template:'<div><p>{{count}}</p><div>\
 //       <button @click="increment">+</button>\
@@ -63,6 +63,10 @@ export default new Router({
         path: '/Hello',
         component: Hello,
         children:[
+          {
+            //用redirect关键字来进行重定向
+            path:'/',redirect:'/Hello/news'
+          },
         	{
         		path:'/Hello/news',component: news
         	},
@@ -75,6 +79,9 @@ export default new Router({
     	  path: '/Address',
     	  component: Address,
         children:[
+          {
+            path:'/',redirect:'/Address/message'
+          },
           {
             path:'/Address/news',component: news
           },

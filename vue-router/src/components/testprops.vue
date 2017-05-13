@@ -29,7 +29,7 @@ export default {
 </script>
 <style>
   .message{
-    background-color: #ccc !important;
+    background-color: #eee !important;
   }
   .message .mestest{
     height: 50px;
@@ -39,7 +39,7 @@ export default {
     width: 100px;
     margin: 0 auto;
 		text-align: center;
-		background-color: #ccc !important;
+		background-color: #eee !important;
     list-style: none;
     padding:0;
 	}

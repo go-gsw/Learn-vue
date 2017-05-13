@@ -20,7 +20,11 @@
           <li><router-link :to="{path:'/users/GSW/uname/ddd',params:{username:'GSW',name:'ddd'},query:{gsw:'barvvv'}}">大大gsw</router-link></li>
         </ul>
       </div>
-    <transition name="fade" appear><router-view class="part1"></router-view></transition>
+      <!-- 添加mode属性改变过度模式 in-out: 新元素先进行过渡，完成之后当前元素过渡离开。
+                                    out-in: 当前元素先进行过渡，完成之后新元素过渡进入。
+            默认行为-进入和离开同时发生
+       -->
+    <transition name="fade" mode="out-in" appear><router-view class="part1"></router-view></transition>
     <!-- <router-view class="part2" name="Aname"></router-view> -->
     <div class="testprops">
       <div class="testh2">
@@ -130,7 +134,8 @@ img{
 }*/
 .user{
   width: 1200px;
-  margin: auto;
+  height: 300px;
+  margin:10px auto;
   background-color: #ccc;
   border-radius: 2px;
 }
@@ -157,7 +162,7 @@ img{
 #app .testprops{
   width: 1200px;
   margin: auto;
-  background-color: #eee;
+  background-color: #ccc;
 }
 #app .testprops .testh2{
   height: 50px;
@@ -184,17 +189,17 @@ a.A-link-active {
   color: #900;
 }*/
 
-.user .part2 .fade-enter-active,.user .part2 .fade-leave-active {
+.user>.fade-enter-active,.user>.fade-leave-active {
   transition: opacity 5s
 }
-.user .part2 .fade-enter,.user .part2 .fade-leave-active /* .fade-leave-active in <2.1.8 */ {
+.user>.fade-enter,.user>.fade-leave-active /* .fade-leave-active in <2.1.8 */ {
   transform: translateX(10px);
   color: red;
   opacity: 0
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: 2s ease;
+  transition: .4s ease-out;
 }
 .fade-enter-to,.fade-leave{
   /*opacity: 1;*/
@@ -204,11 +209,11 @@ a.A-link-active {
 .fade-enter{
   opacity: 0;
   visibility: hidden;
-  transform: translateX(1200px);
+  transform: translateX(1000px);
 }
 .fade-leave-to{
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-1200px);
+  transform: translateX(-1000px);
 }
 </style>
