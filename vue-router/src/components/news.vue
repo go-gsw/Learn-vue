@@ -4,7 +4,7 @@
   <!-- update不用传值可以通过v-model的msg获得this.msg -->
   <div class="inp">
     <input type="text" v-model="msg" placeholder="输入生成列表" @keyup.enter="update" style="height:30px">
-    <button @click="update" style="height:30px"> 输入 </button>
+    <button @click="update" style="height:30px"> 插入列表 </button>
     <button @click="Clear" style="height:30px"> 清除列表 </button>
   </div>
     <ul>
@@ -24,16 +24,16 @@ export default {
   // props:['msg'],
   data () {
     return {
-      /*items:[
-        {
-          label:'coding',
-          isfinished:true
-        },
-        {
-          label:'walking',
-          isfinished:false
-        }
-      ],*/
+      // items:[
+      //   {
+      //     label:'coding',
+      //     isfinished:true
+      //   },
+      //   {
+      //     label:'walking',
+      //     isfinished:false
+      //   }
+      // ],
       items:Storage.fetch(),
       msg: ''
     }
@@ -52,13 +52,20 @@ export default {
   methods:{
     update(){
       // console.log(this.msg);
+      // let here=this
       if(this.msg){
-      //   console.log("哈哈哈"+this.items+"54544")
+        // console.log("哈哈哈"+this.items+"54544")
         // let list =Storage.fetch()
+        // let hahaha=4
+        // console.log(hahaha)
+        // console.log(this.msg)
+
         this.items.push({
         label:this.msg,
         isfinished:false
       })
+        // console.log(this.items)
+      // console.log(this.msg)
       this.msg=""
       Storage.save()
       }else{
