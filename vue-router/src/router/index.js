@@ -41,6 +41,7 @@ const user={template:'<h2>{{$route.params.username}}</h2>'}
 // })
 
 export default new Router({
+  mode:'history',
   routes: [
     /*{
       path:'/user',

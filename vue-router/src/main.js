@@ -8,7 +8,7 @@ import App from './App'
 import router from './router'
 import AddloadEvent from './addloadEvent'
 import Vuex from 'vuex'
-
+import Emoji from 'node-emoji'
 Vue.use(Vuex)
 Vue.use(AddloadEvent)
 Vue.config.productionTip = false
