@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Vuex from 'vuex'
+// import Vuex from 'vuex'
 import Hello from '@/components/Hello'
 import Address from '@/components/address'
 import news from '@/components/news'
 import message from '@/components/message'
 // import user from '@/components/'
 Vue.use(Router)
-Vue.use(Vuex)
+// Vue.use(Vuex)
 // const news={ template:'<div><ul><li>news1</li><li>news2</li><li>news3</li></ul></div>' }
 // const message={ template:'<div>jjjjjjjjjjj</div>' }
       // <h2>User:{{ $route.params.user.name }}</h2>
@@ -26,20 +26,6 @@ const user={template:'<h2>{{$route.params.username}}</h2>'}
 //       <button @click="increment">+</button>\
 //       <button @click="decrement">-</button>\
 //       </div></div>',computed:{count(){return this.$stroe.state.count}}}
-
-// const store =new Vuex.Store({
-//   state:{
-//     count:0
-//   },
-//   mutations:{
-//     // increment(state){
-//     //   state.count++
-//     // }
-//     increment:state=>state.count++,
-//     decrement:state=>state.count--
-//   }
-// })
-
 export default new Router({
   mode:'history',
   routes: [

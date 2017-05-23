@@ -2,12 +2,10 @@
   <div class="hello">
     <div id="msg">
       <h1>{{ msg }}</h1>
+        <button @click="increment">+</button>
+        <h2 style="display:inline">非父子组件之间的通信:Store  {{count}}</h2>
+        <button @click="decrement">-</button>
     </div>
-    <!-- <p>{{count}}</p>
-    <div>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-    </div> -->
     <!-- <h2>{{$router.params.id}}</h2> -->
       <!-- <ul>
         <li>
@@ -29,6 +27,7 @@
 
 
 <script>
+
 export default {
   name: 'hello',
 //data(){}是ES6写法等价于data:function (){return...}
@@ -37,19 +36,19 @@ export default {
       msg: 'GSW'
     }
   },
-  // methods:{
-  //   increment(){
-  //     store.commit('increment')
-  //   },
-  //   decrement(){
-  //     store.commit('decrement')
-  //   }
-  // },
-  // computed:{
-  //   count(){
-  //     return store.state.count
-  //   }
-  // }
+  methods:{
+    increment(){
+      this.$store.commit('inc')
+    },
+    decrement(){
+      this.$store.commit('dec')
+    }
+  },
+  computed:{
+    count(){
+      return this.$store.state.counts
+    }
+  }
 }
 
 </script>

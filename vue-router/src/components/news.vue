@@ -6,6 +6,9 @@
     <input type="text" v-model="msg" placeholder="输入生成列表" @keyup.enter="update" style="height:30px">
     <button @click="update" style="height:30px"> 插入列表 </button>
     <button @click="Clear" style="height:30px"> 清除列表 </button>
+    <button @click="increment">+</button>
+    <h2 style="display:inline">{{count}}</h2>
+    <button @click="decrement">-</button>
   </div>
     <ul>
       <!-- v-text和v-html区别是v-text全部显示文本v-html会考虑html标签 -->
@@ -49,6 +52,11 @@ export default {
       deep:true
     }
   },
+  computed:{
+    count(){
+      return this.$store.state.counts
+    }
+  },
   methods:{
     update(){
       // console.log(this.msg);
@@ -84,8 +92,15 @@ export default {
       this.items=[]
       this.msg=''
       Storage.save()
+    },
+    increment(){
+      this.$store.commit('inc')
+    },
+    decrement(){
+      this.$store.commit('dec')
     }
-}}
+  }
+}
 </script>
 <style>
   .finished{

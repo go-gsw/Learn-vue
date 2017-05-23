@@ -9,23 +9,25 @@ import router from './router'
 import AddloadEvent from './addloadEvent'
 import Vuex from 'vuex'
 import Emoji from 'node-emoji'
+
+import store from './store'
 Vue.use(Vuex)
 Vue.use(AddloadEvent)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-const store =new Vuex.Store({
-  state:{
-    count:0
-  },
-  mutations:{
-    // increment(state){
-    //   state.count++
-    // }
-    increment:state=>state.count++,
-    decrement:state=>state.count--
-  }
-})
+// export default new Vuex.Store({
+//   state:{
+//     count:0
+//   },
+//   mutations:{
+//     // increment(state){
+//     //   state.count++
+//     // }
+//     inc:state=>state.count++,
+//     dec:state=>state.count--
+//   }
+// })
 
 new Vue({
   el: '#app',

@@ -4,6 +4,9 @@
     <ul>
       <li>{{message}}</li>
       <li>{{message}}</li>
+    <button @click="increment">+</button>
+    <h2>{{count}}</h2>
+    <button @click="decrement">-</button>
     </ul>
   </div>
 </template>
@@ -20,6 +23,17 @@ export default {
   methods:{
     speakToFather(){
       this.$emit('children-tell-father',this.message)
+    },
+    increment(){
+      this.$store.commit('inc')
+    },
+    decrement(){
+      this.$store.commit('dec')
+    }
+  },
+  computed:{
+    count(){
+      return this.$store.state.counts
     }
   }
 }

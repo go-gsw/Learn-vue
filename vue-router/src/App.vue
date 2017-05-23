@@ -55,8 +55,8 @@ export default {
   methods:{
     ListenMyChild(msg){
       this.ChildWords=msg;
-    }
-  }
+    },
+  },
 }
 
 </script>
