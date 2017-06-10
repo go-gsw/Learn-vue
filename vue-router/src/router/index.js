@@ -29,10 +29,6 @@ const user={template:'<h2>{{$route.params.username}}</h2>'}
 export default new Router({
   mode:'history',
   routes: [
-    /*{
-      path:'/user',
-      component:user,
-      children:[*/
 
       //默认显示地址由path:'/'表示
       {
