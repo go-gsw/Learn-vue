@@ -67,7 +67,7 @@
         <td class="price">{{item.price | formatMoney}}</td>
         <td class="num">
         <div class="choosenum-handler">
-              <a href="javascript:;" class="icon-minus" @click="changeMoney(item,-1)">-</a>
+              <a href="javascript:;" class="icon-minus" @click="changeMoney(item,-1)">－</a>
                 <input class="countbox" style="text-align:center" size="1" max="999" type="text" value="0" v-model="item.count">
               <a href="javascript:;" class="icon-plus" @click="changeMoney(item,1)">＋</a>
         </div>

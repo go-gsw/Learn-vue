@@ -307,7 +307,7 @@ export default {
     },
     editAddress(index){
       this.isedit=true;
-      console.log(index);
+      // console.log(index);
       this.editIndex=index
     },
     saveNewAddress(saveID){
@@ -328,14 +328,14 @@ export default {
   	},
     editOldAddress(editIndex){
       let editaddress =this.filterAddress[editIndex];
-      console.log(editaddress.userName);
-      console.log(editaddress);
+      // console.log(editaddress.userName);
+      // console.log(editaddress);
       // this.filterAddress[editIndex].item.forEach((item)=>{
       //   return filterAddress[editIndex]
       // });
       // this.filterAddress[editIndex].fill(editaddress);
       // this.addressList.splice(editIndex,0);
-      console.log(this.addressList);
+      // console.log(this.addressList);
       this.editIndex=0;
       this.isedit=false;
     },
@@ -354,11 +354,11 @@ export default {
     },
     editingAddress(editIndex){
       return this.filterAddress[editIndex];
-      console.log(filterAddress[editIndex])
+      // console.log(filterAddress[editIndex]+'oasuncoascijbac')
     },
     fetchAllmonery(){
       const FTM=localStorage.getItem('allMonery')||'[]'
-      console.log(FTM+'this is address')
+      // console.log(FTM+'this is address')
       this.finalTotalMonery=FTM
     }
   },

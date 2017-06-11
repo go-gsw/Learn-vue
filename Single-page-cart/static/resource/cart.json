@@ -14,11 +14,11 @@
         "parts":[
           {
             "partId":"100001",
-            "partName":"打火机"
+            "partName":"打火机1"
           },
           {
             "partId":"100002",
-            "partName":"打火机1"
+            "partName":"打火机11"
           }
         ]
       },
@@ -31,11 +31,11 @@
         "parts":[
           {
             "partId":"100001",
-            "partName":"打火机"
+            "partName":"打火机2"
           },
           {
             "partId":"100002",
-            "partName":"打火机1"
+            "partName":"打火机21"
           }
         ]
       },
@@ -48,11 +48,11 @@
         "parts":[
           {
             "partId":"100001",
-            "partName":"打火机"
+            "partName":"打火机3"
           },
           {
             "partId":"100002",
-            "partName":"打火机1"
+            "partName":"打火机31"
           }
         ]
       }
