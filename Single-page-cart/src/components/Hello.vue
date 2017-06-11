@@ -69,7 +69,7 @@
         <div class="choosenum-handler">
               <a href="javascript:;" class="icon-minus" @click="changeMoney(item,-1)">-</a>
                 <input class="countbox" style="text-align:center" size="1" max="999" type="text" value="0" v-model="item.count">
-              <a href="javascript:;" class="icon-plus" @click="changeMoney(item,1)">+</a>
+              <a href="javascript:;" class="icon-plus" @click="changeMoney(item,1)">＋</a>
         </div>
         </td>
         <td class="total">{{item.price*item.count | money("元")}}</td>
@@ -99,7 +99,7 @@
       </div>
       <div class="totalright">
         <span class="finalTotal">合计：{{finalTotal | money("元")}}</span>
-        <button class="sub"><strong>结账</strong></button>      
+        <button class="sub" @click="checkoutAll"><strong>结账</strong></button>      
       </div>
     </div>
 
@@ -136,6 +136,7 @@ export default {
       totalMoney:0,
       finalTotal:0,
       // checkAll:"checked",
+      ischeckAll:'',
       isDelete: false,
       curProduct: ''
       // title: 'hello,vue'
@@ -222,6 +223,11 @@ export default {
       let index = this.cartList.indexOf(this.curProduct);
       this.cartList.splice(index,1);
       this.isDelete = false;
+    },
+    checkoutAll(){
+      console.log(this.finalTotal)
+      localStorage.setItem('allMonery',JSON.stringify(this.finalTotal));
+      this.$router.push('/address')
     }
   }
 }

@@ -104,11 +104,11 @@
             <ul>
               <li :class="{'check':sendMethod == 1}" @click="sendMethod = 1">
                 <div class="name">标准配送</div>
-                <div class="price">Free</div>
+                <div class="price">Free + {{finalTotalMonery}}</div>
               </li>
               <li :class="{'check':sendMethod == 2}" @click="sendMethod = 2">
                 <div class="name">高级配送</div>
-                <div class="price">$180</div>
+                <div class="price">18 + {{finalTotalMonery}}</div>
               </li>
             </ul>
           </div>
@@ -253,6 +253,7 @@ export default {
       isDelete: false,
       isadd:false,
       isedit:false,
+      finalTotalMonery:'',
       newAddress:{
         addressId:'',
       	userName:'',
@@ -261,6 +262,9 @@ export default {
       	isDefault:false
       }
     }
+  },
+  created(){
+    this.fetchAllmonery()
   },
   mounted (){
     this.$nextTick( ()=>{
@@ -351,6 +355,11 @@ export default {
     editingAddress(editIndex){
       return this.filterAddress[editIndex];
       console.log(filterAddress[editIndex])
+    },
+    fetchAllmonery(){
+      const FTM=localStorage.getItem('allMonery')||'[]'
+      console.log(FTM+'this is address')
+      this.finalTotalMonery=FTM
     }
   },
   //计算属性从新生成数组

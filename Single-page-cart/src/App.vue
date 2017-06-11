@@ -2,10 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div id="router-list">
-      <router-link to="/">Hello</router-link>
-      <router-link to="/address">address</router-link>
+      <router-link to="/" active-class="changingactive">Hello</router-link>
+      <router-link to="/address" active-class="changingactive">address</router-link>
     </div>
-    <router-view></router-view>
+    <transition name="moveact" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ window.onload=function(){
         if(list[j]==this){
           this.style.color="#333";
         }else{
-          list[j].style.color="#fff";
+          list[j].style.color="#eee";
         }
       }
     };
@@ -33,7 +35,7 @@ window.onload=function(){
 
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,7 +60,7 @@ window.onload=function(){
   letter-spacing: 1px;
   line-height: 30px;
   text-decoration: none;
-  color: #fff;
+  color: #eee;
   font-weight: bold;
 }
 #app #router-list a:hover{
@@ -70,4 +72,16 @@ window.onload=function(){
 #app .router-list a:active{
   color: red;
 }*/
+ #app #router-list a.changingactive{
+  color:#333;
+}
+.moveact-enter-active, .moveact-leave-active{
+  transition: .3s ease;
+}
+.moveact-enter-to, .moveact-leave{
+  opacity: 1;
+}
+.moveact-enter,.moveact-leave-to{
+  opacity: 0;
+}
 </style>
